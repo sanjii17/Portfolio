@@ -1,28 +1,20 @@
 {
   "taskList": [
     {
-      "title": "Read Book",
-      "desc": "Complete the book on 28th sept",
-      "user": "saiprasanth",
-      "id": "1"
-    },
-    {
-      "title": "Breakfast",
-      "desc": "Complete the diet breakfast",
-      "user": "saiprasanth",
-      "id": "2"
-    },
-    {
       "id": "1244",
       "title": "Track Weight",
       "desc": "July - 7th month of weight progress",
-      "user": "Saiprasanth"
+      "user": "Saiprasanth",
+      "dueDate": "2025-07-17T03:37",
+      "completed": true
     },
     {
-      "id": "338d",
-      "title": "Save Money",
-      "desc": "Save money to buy PS5 pro (or) model that comes with the bundle, when GTA6 gets released.",
-      "user": "Saiprasanth"
+      "id": "c681",
+      "title": "hi",
+      "desc": "hi",
+      "user": "Official",
+      "completed": true,
+      "dueDate": "2025-01-12"
     }
   ]
 }
