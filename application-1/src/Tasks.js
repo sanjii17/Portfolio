@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 const TaskList = ({list, title}) => {
 
     return ( 
-        <div className="tasks">
+        <div className="row">
+            <div className="tasks col-12 col-md-6 col-lg-4">
             <div className="title">
                 <h2>{title}</h2>
             </div>
@@ -19,6 +20,8 @@ const TaskList = ({list, title}) => {
                 </Link>
             ))}
         </div>
+        </div>
+        
      );
 }
  

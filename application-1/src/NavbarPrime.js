@@ -5,7 +5,7 @@ const NavbarPrime = ({name, searchTerm, setSearchTerm}) => {
         <div className="container-fluid">
             <div className="tg-group">
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarabove" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"><i class="fa fa-bars"></i></span>
+                <span className="navbar-toggler-icon"><i class="fa fa-bars" style={{color: 'white'}}></i></span>
                 </button>
                 <div className="brand-logo ms-3">
                     <img src="/target_icon.png" alt="logo" />

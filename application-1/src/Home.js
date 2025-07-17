@@ -27,6 +27,11 @@ const Home = ({searchTerm, setSearchTerm}) => {
             task.user.toLowerCase() === "saiprasanth" &&
             task.title.toLowerCase().includes(searchTerm.toLowerCase())
             )} title="Saiprasanth" />}
+
+            {list && <TaskList list={list.filter((task) => 
+            task.user.toLowerCase() === "saiprasanth" &&
+            task.title.toLowerCase().includes(searchTerm.toLowerCase())
+            )} title="Saiprasanth" />}
         </div>
 
 

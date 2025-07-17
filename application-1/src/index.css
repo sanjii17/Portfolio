@@ -8,7 +8,7 @@
 }
 
 body{ 
-  background: #0d1726 !important;
+  background:  #22232a !important;
   color: #cce4fc !important;
 }
 
@@ -24,16 +24,16 @@ body{
 
 /* Sidebar CSS */
 .navbar-above {
-  min-width: 425px;
-  max-width: 30%;
+  min-width: 325px;
+  max-width: 20%;
   height: 100%;
   overflow-y: auto;
   flex-shrink: 1;
-  padding: 1rem;
+  padding: 1rem 1rem 0rem 0rem;
 }
 
 #addTaskBtn{
-  max-width: 46px ;
+  max-width: 46px;
 }
 
 /* NavbarPrime and Some Navbar CSS */
@@ -73,21 +73,45 @@ body{
   transition: max-width 0.3s ease;
 }
 
+.tg-group{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .prime{
   position: sticky;
   top: 0;
 }
+
+.prime form{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  flex-grow: .7;
+}
+
 /* NavbarPrime and Some Navbar CSS */
 
 /* Home Component style */
 .home {
-  flex-grow: 1;
   height: 100%;
   overflow-y: auto;
+  scrollbar-width: none;
+  border-radius: 3%;
+  flex-shrink: 1;
+  flex-grow: 1;
+  max-width: 680px;
+  min-width: 300px;
   padding: 2rem;
-  min-width: 0;
 }
 
+.tasks{
+  background: #0c0d16;
+  border-radius: 3%;
+  min-width: 100%;
+}
 
 /* Input term styles */
 .input-wrapper {
@@ -258,6 +282,23 @@ body{
   cursor: pointer;
 }
 
+.navbar-toggler{
+  border: none !important;
+  background-color: transparent !important;
+  line-height: 1.5 !important;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.navbar-toggler i:hover{
+  color: tomato !important;
+  filter: drop-shadow(-4px 10px 163px #000000);
+}
+
+.navbar-toggler:focus{
+  box-shadow: none !important;
+}
 /* Create form Styles */
 
 
