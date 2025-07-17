@@ -8,42 +8,295 @@
 }
 
 body{ 
-  background: #c6d726;
+  background: #0d1726 !important;
+  color: #cce4fc !important;
+}
+
+.App{
+    position: relative;
+}
+
+.overall {
+  display: flex;
+  height: 90.9vh;
+  overflow: hidden;
+}
+
+/* Sidebar CSS */
+.navbar-above {
+  min-width: 425px;
+  max-width: 30%;
+  height: 100%;
+  overflow-y: auto;
+  flex-shrink: 1;
+  padding: 1rem;
+}
+
+#addTaskBtn{
+  max-width: 46px ;
+}
+
+/* NavbarPrime and Some Navbar CSS */
+.navbar-brand{
+  font-size: 1.6rem !important;
+  font-weight: 800;
+  color: tomato !important;
 }
 
 .navbar{
-  padding: 20px;
   display: flex;
-  align-items: center;
-  max-width: 600px;
-  margin: 0 auto;
-  border: none;
-  border-bottom: 1px solid #eeeded;
-}
-
-.navbar h1{
-  font-size: 1.5rem;
-  font-weight: 900;
-  color: tomato;
-}
-
-.navbar .links{
+  flex-direction: column !important;
   margin-left: auto;
 }
 
-.navbar a{
-  text-decoration: none;
-  color: #000;
-  padding: 6px;
-  margin-left: 1rem;
+.navbar-toggler-icon{
+  background-image: none !important;
 }
 
-.navbar a:hover{
-  color: tomato;
+.navbar a{
+  color: #e2dede;
+  padding: 6px;
+}
+
+.navbar-nav a:hover{
+  color: tomato !important;
+}
+
+.brand-logo img{
+  width: 42px;
+  height: 42px;
 }
 
 .content{
-  max-width: 600px;
   padding: 20px;
   margin: 0 auto;
+  transition: max-width 0.3s ease;
 }
+
+.prime{
+  position: sticky;
+  top: 0;
+}
+/* NavbarPrime and Some Navbar CSS */
+
+/* Home Component style */
+.home {
+  flex-grow: 1;
+  height: 100%;
+  overflow-y: auto;
+  padding: 2rem;
+  min-width: 0;
+}
+
+
+/* Input term styles */
+.input-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+
+}
+
+.input-wrapper input {
+  padding: 0.5rem 1rem;
+  width: 100%;
+  border-radius: .2rem;
+  box-shadow: -2px 1px 7px 0px rgba(60, 59, 59, 0.372);
+  border: 1px solid #ccc;
+  padding-right: 100px;
+  box-sizing: border-box;
+  min-height: 3rem;
+  max-width: 25rem;
+}
+
+/* .input-wrapper button:first-of-type {
+  position: absolute;
+  top: 12px;
+  right: 7rem;
+  height: 50%;
+  padding: 0 5px;
+  background-color: transparent;
+  color: #000;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.input-wrapper button:first-of-type:hover {
+  color: #9b9898;
+}
+
+.input-wrapper button:last-of-type:hover {
+  background-color: rgb(175, 31, 5);
+  color: #ffffff;
+} */
+/* Input term styles */
+
+
+
+/* List preview styles */
+.list-preview,.title,.add{
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  margin: 0em 0em 1em 0em;
+}
+
+.list-preview:hover{
+  box-shadow: -10px 2px 17px -4px rgba(0,0,0,0.75);
+  transition: box-shadow .3s ease;
+}
+
+.list-preview h2{
+  color: tomato;
+  justify-content: flex-start;
+}
+
+.list-preview p{
+  font-size: 1rem;
+}
+
+.delete {
+  margin-left: auto;
+}
+
+.delete button{
+  padding:12px 8px;
+  border-radius: 1.2rem;
+  border: 1px solid white;
+}
+
+.delete button:hover{
+  border: 1px solid rgb(43, 43, 43);
+  box-shadow: 1px 8px 7px rgba(60, 59, 59, 0.372);
+}
+/* List preview styles */
+
+/* Loading text and Error text style */
+.loading,.error{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+}
+
+.loading h3 {
+  position: relative;
+  color: white;
+  font-weight: bold;
+  overflow: hidden;
+  background: linear-gradient(90deg, #1e90ff, #cce4fc, #1e90ff);
+  background-size: 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textglow 2.5s linear infinite;
+}
+
+.error h3 {
+  position: relative;
+  color: white;
+  font-weight: bold;
+  overflow: hidden;
+  filter: brightness(96%) drop-shadow(-4px 10px 163px #000000);
+  background: linear-gradient(90deg, #ff1e1e, #131312, #ff1e1e);
+  background-size: 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textglow 2.5s linear infinite;
+}
+
+@keyframes textglow {
+  0% {
+    background-position: -100%;
+  }
+  100% {
+    background-position: 100%;
+  }
+}
+/* Loading text and Error text style */
+
+
+/* Create form Styles */
+.addTask{
+  flex-grow: 1;
+  height: 100%;
+  overflow-y: auto;
+  padding: 2rem;
+  min-width: 0;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.addTask label{
+  text-align: left;
+  display: block;
+}
+
+.addTask h2{
+  font-size: 20px;
+  color: tomato;
+  margin-bottom: 30px;
+}
+
+.addTask input, textarea, select{
+  width: 100%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  display: block;
+}
+
+.addTask button{
+  background-color: tomato;
+  color: #ffffff;
+  border: 0 ;
+  padding: 6px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Create form Styles */
+
+
+
+
+
+
+/* Media queries for small screen */
+@media (max-width: 426px) {
+  .overall {
+    flex-direction: column;
+  }
+
+  .navbar-above {
+    width: 100%;
+    box-shadow: none;
+  }
+
+  .home {
+    width: 100%;
+  }
+
+  .navbar-collapse{
+    position: absolute;
+    right: 0.2rem;
+    top: 3.5rem;
+    flex-grow: 1;
+    flex-basis: 100%;
+    align-items: center;
+    background: azure;
+    width: 30vh;
+    z-index: 1;
+  }  
+  .navbar-toggler{
+    border: none !important;
+  }
+  .navbar-toggler:focus{
+    box-shadow: none !important;
+    border: 1px solid black !important;
+  }
+}
+/* Media queries for small screen */
