@@ -4,9 +4,12 @@ const NavbarPrime = ({name, searchTerm, setSearchTerm}) => {
             <nav className="navbar text-white prime" style={{position: 'sticky'}}>
         <div className="container-fluid">
             <div className="tg-group">
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarabove" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"><i class="fa fa-bars" style={{color: 'white'}}></i></span>
-                </button>
+                <div className="btn-collapse">
+                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarabove" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"><i class="fa fa-bars" style={{color: 'white'}}></i></span>
+                    </button>
+                </div>
+
                 <div className="brand-logo ms-3">
                     <img src="/target_icon.png" alt="logo" />
                     <a className="navbar-brand" href="/">TaskDooM</a>

@@ -32,9 +32,26 @@ body{
   padding: 1rem 1rem 0rem 0rem;
 }
 
-#addTaskBtn{
-  max-width: 46px;
+.nav-main{
+  width: 100%;
 }
+
+.nav-main .nav-link:nth-child(2){
+  background-color: #1e90ff;
+}
+
+.custom-navbar .nav-link:nth-child(1){
+  padding: 1rem 1rem 1rem 1rem;
+}
+
+#addTaskBtn{
+  width: 60%;
+  padding: 5% 0rem;
+  border-radius: 3%;
+  background-color: #3e3e3e;
+  color: #ffffff;
+}
+/* Sidebar CSS */
 
 /* NavbarPrime and Some Navbar CSS */
 .navbar-brand{
@@ -96,22 +113,33 @@ body{
 
 /* Home Component style */
 .home {
+  display: flex;
+  flex-direction: row;
   height: 100%;
-  overflow-y: auto;
+  overflow-x: auto;
   scrollbar-width: none;
   border-radius: 3%;
   flex-shrink: 1;
   flex-grow: 1;
-  max-width: 680px;
-  min-width: 300px;
   padding: 2rem;
+  gap: 1rem;
+  flex-grow: 1; min-height: 0; overflow-x: auto;
 }
 
-.tasks{
+
+.tasks {
   background: #0c0d16;
   border-radius: 3%;
-  min-width: 100%;
+  width: 70%;
+  min-height: 570px;
+  max-height: max-content;
+  max-width: 680px;
+  min-width: 300px;
+  margin-right: 1rem;
+  flex-shrink: 0;
 }
+
+
 
 /* Input term styles */
 .input-wrapper {
@@ -318,7 +346,36 @@ body{
   }
 
   .home {
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow-y: auto;
+    scrollbar-width: none;
+    border-radius: 3%;
+    flex-shrink: 1;
+    flex-grow: 1;
+    max-width: 680px;
+    min-width: 300px;
+    padding: .7rem;
+  }
+
+  .tasks{
+    background: #0c0d16;
+    border-radius: 3%;
+    min-width: 100%;
+  }
+  .prime form{
+    margin-top: 1rem;
+    flex-grow: .7;
+  }
+  .navbar-above{
+    position: absolute;
+    top: 3em;
+    left: 0;
+    height: 15%;
+    width: 5rem;
+    padding: 0em;
+    margin-left: .5em;
   }
 
   .navbar-collapse{
@@ -339,5 +396,6 @@ body{
     box-shadow: none !important;
     border: 1px solid black !important;
   }
+
 }
 /* Media queries for small screen */
