@@ -1,225 +1,267 @@
+/* Import the Savate font from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Savate:ital,wght@0,200..900;1,200..900&display=swap');
 
-*{
+/* Universal resets and font stack */
+* {
   margin: 0;
   padding: 0;
-  font-family: "Savate", sans-serif;
+  box-sizing: border-box;
+  font-family: "Savate", 'Courier New', Courier, monospace, sans-serif;
   font-optical-sizing: auto;
 }
 
-body{ 
-  background: #0d1726 !important;
-  color: #cce4fc !important;
+/* Theme classes for Dark & Light - easy switching, no !important needed */
+body, .App {
+  transition: background 0.5s, color 0.5s;
 }
 
-.App{
-    position: relative;
+body.light, .App.light {
+  background: #f5f5f7;
+  color: #232323;
+}
+body.dark, .App.dark {
+  background: #0d1726;
+  color: #cce4fc;
+}
+h1, h2, h3, h4 {
+  color: #e5542b;
+  letter-spacing: .5px;
+  font-weight: 800;
+}
+.App {
+  position: relative;
+  min-height: 100vh;
 }
 
+/* Main layout */
 .overall {
   display: flex;
-  height: 90.9vh;
+  height: 90.5vh;
   overflow: hidden;
+  background: transparent;
 }
 
-/* Sidebar CSS */
+/* Sidebar styling */
 .navbar-above {
-  min-width: 425px;
-  max-width: 30%;
+  min-width: 320px;
+  max-width: 28%;
+  background: rgba(23,30,43,0.9);
+  border-right: 2px solid #24293c;
   height: 100%;
   overflow-y: auto;
   flex-shrink: 1;
-  padding: 1rem;
+  padding: 1.5rem 1rem 1rem 1.5rem;
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+  transition: background .3s;
 }
 
-#addTaskBtn{
-  max-width: 46px ;
-}
-
-/* NavbarPrime and Some Navbar CSS */
-.navbar-brand{
-  font-size: 1.6rem !important;
+#addTaskBtn {
+  max-width: 80px ;
   font-weight: 800;
-  color: tomato !important;
+  background: #e5542b;
+  color: #fff;
+  border: none;
+  margin-bottom: .7rem;
+  box-shadow: 0 1px 8px 0 #ebc2b67c;
+}
+#addTaskBtn:hover {
+  background: #ff653b;
+  color: #fff;
 }
 
-.navbar{
+/* Navbar/brand */
+.navbar-brand{
+  font-size: 1.7rem !important;
+  font-weight: 900;
+  color: #e5542b !important;
+  letter-spacing: 1.5px;
+}
+.navbar {
   display: flex;
   flex-direction: column !important;
   margin-left: auto;
 }
-
 .navbar-toggler-icon{
   background-image: none !important;
 }
 
-.navbar a{
+.navbar a,
+.navbar a:visited {
   color: #e2dede;
   padding: 6px;
+  text-decoration: none;
+  font-size: 1.1rem;
 }
-
-.navbar-nav a:hover{
-  color: tomato !important;
+.navbar a:hover, .navbar-nav a:hover{
+  color: #e5542b !important;
+  font-weight: 700;
+  background: #f6eedec2;
+  border-radius: 5px;
 }
 
 .brand-logo img{
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
+  margin-right: 14px;
 }
-
-.content{
-  padding: 20px;
+.content {
+  padding: 2.5rem 0;
   margin: 0 auto;
   transition: max-width 0.3s ease;
 }
-
-.prime{
+.prime {
   position: sticky;
   top: 0;
+  z-index: 9;
+  background: linear-gradient(90deg, #181d29 90%, #3335 100%);
+  box-shadow: 0 2px 13px #21202c36;
 }
-/* NavbarPrime and Some Navbar CSS */
 
-/* Home Component style */
+.prime input[type="search"] {
+  background: #ececec;
+  color: #19191a;
+  border: 1px solid #d9d9e3;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  transition: border .3s;
+}
+.prime input[type="search"]:focus {
+  outline: none;
+  border: 1.5px solid #e5542b;
+}
+
+.prime button {
+  cursor: pointer;
+}
+/* Home styles */
 .home {
   flex-grow: 1;
   height: 100%;
   overflow-y: auto;
-  padding: 2rem;
+  padding: 2.8rem 2rem 2rem 2rem;
   min-width: 0;
+  background: transparent;
+}
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  background: rgba(0,0,0,.04);
 }
 
+::-webkit-scrollbar-thumb {
+  background-color: #e5542b99;
+  border-radius: 3px;
+  opacity: .3;
+}
 
-/* Input term styles */
+::-webkit-scrollbar-thumb:hover {
+  background: #cce4fc;
+  opacity: .75;
+}
+
+/* SEARCH INPUT styling */
 .input-wrapper {
   position: relative;
   width: 100%;
   display: flex;
-
 }
-
 .input-wrapper input {
-  padding: 0.5rem 1rem;
+  padding: 0.85rem 1rem;
   width: 100%;
-  border-radius: .2rem;
-  box-shadow: -2px 1px 7px 0px rgba(60, 59, 59, 0.372);
-  border: 1px solid #ccc;
-  padding-right: 100px;
+  border-radius: .29em;
+  box-shadow: 0 2px 8px #5a7ef522;
+  border: 1.5px solid #e9e6e6;
+  padding-right: 95px;
   box-sizing: border-box;
+  font-size: 1.1rem;
   min-height: 3rem;
   max-width: 25rem;
 }
-
-/* .input-wrapper button:first-of-type {
-  position: absolute;
-  top: 12px;
-  right: 7rem;
-  height: 50%;
-  padding: 0 5px;
-  background-color: transparent;
-  color: #000;
-  border: none;
-  cursor: pointer;
-  white-space: nowrap;
+.input-wrapper input:focus {
+  border: 1.5px solid #e5542b;
 }
-
-.input-wrapper button:first-of-type:hover {
-  color: #9b9898;
-}
-
-.input-wrapper button:last-of-type:hover {
-  background-color: rgb(175, 31, 5);
-  color: #ffffff;
-} */
-/* Input term styles */
-
-
-
 /* List preview styles */
-.list-preview,.title,.add{
+.list-preview, .title, .add {
   display: flex;
   align-items: center;
-  padding: 10px 16px;
-  margin: 0em 0em 1em 0em;
+  padding: 13px 16px;
+  margin: 0 0 1.5em 0;
+  background: rgba(228,235,255,0.082);
+  border-radius: 12px;
+  transition: background .2s;
+  text-decoration: none !important;
 }
-
-.list-preview:hover{
-  box-shadow: -10px 2px 17px -4px rgba(0,0,0,0.75);
-  transition: box-shadow .3s ease;
+.list-preview:hover {
+  box-shadow: -8px 4px 17px -4px #13152712;
+  background: #f6eedecd;
 }
-
-.list-preview h2{
-  color: tomato;
+.list-preview h2 {
+  color: #e5542b;
   justify-content: flex-start;
+  font-size: 1.45rem;
 }
-
-.list-preview p{
+.list-preview p {
   font-size: 1rem;
+  margin-left: 19px;
+  font-weight: 600;
+  color: #444;
 }
-
+.list-items input[type="checkbox"] {
+  margin-right: 10px;
+  width: 1.2em;
+  height: 1.2em;
+}
 .delete {
   margin-left: auto;
 }
-
-.delete button{
-  padding:12px 8px;
-  border-radius: 1.2rem;
-  border: 1px solid white;
+.delete button {
+  padding:10px 12px;
+  border-radius: 1.4rem;
+  border: 1.5px solid #e5542b;
+  background: #e5542b13;
+  color: #e5542b;
+  font-weight: 700;
+  margin-left: 1rem;
+  transition: border .2s, background .2s, color .2s;
 }
-
-.delete button:hover{
-  border: 1px solid rgb(43, 43, 43);
-  box-shadow: 1px 8px 7px rgba(60, 59, 59, 0.372);
+.delete button:hover {
+  border: 1.5px solid #444;
+  background: #e5542b27;
+  color: #ed1515;
+  box-shadow: 3px 14px 18px #e6d9d928;
 }
-/* List preview styles */
-
-/* Loading text and Error text style */
-.loading,.error{
+/* Loading and Error */
+.loading, .error {
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 60vh;
 }
-
-.loading h3 {
+.loading h3, .error h3 {
   position: relative;
-  color: white;
+  color: #2e1348;
   font-weight: bold;
   overflow: hidden;
-  background: linear-gradient(90deg, #1e90ff, #cce4fc, #1e90ff);
   background-size: 200%;
-  -webkit-background-clip: text;
   background-clip: text;
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: textglow 2.5s linear infinite;
 }
-
+.loading h3 {
+  background: linear-gradient(90deg, #1e90ff, #cce4fc, #1e90ff);
+}
 .error h3 {
-  position: relative;
-  color: white;
-  font-weight: bold;
-  overflow: hidden;
   filter: brightness(96%) drop-shadow(-4px 10px 163px #000000);
   background: linear-gradient(90deg, #ff1e1e, #131312, #ff1e1e);
-  background-size: 200%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: textglow 2.5s linear infinite;
 }
-
 @keyframes textglow {
-  0% {
-    background-position: -100%;
-  }
-  100% {
-    background-position: 100%;
-  }
+  0% { background-position: -100%; }
+  100% { background-position: 100%; }
 }
-/* Loading text and Error text style */
-
-
-/* Create form Styles */
-.addTask{
+/* Forms & Buttons */
+.addTask, .pnf {
   flex-grow: 1;
   height: 100%;
   overflow-y: auto;
@@ -229,74 +271,86 @@ body{
   text-align: center;
 }
 
-.addTask label{
+.addTask label {
   text-align: left;
   display: block;
+  font-size: 1.08rem;
+  margin-top: 1.3rem;
+  color: #e5542b;
 }
-
-.addTask h2{
-  font-size: 20px;
-  color: tomato;
-  margin-bottom: 30px;
+.addTask h2 {
+  font-size: 1.5rem;
+  color: #e5542b;
+  margin-bottom: 25px;
+  font-weight: 700;
+  letter-spacing: .7px;
 }
-
-.addTask input, textarea, select{
+.addTask input, textarea, select {
   width: 100%;
-  padding: 6px 10px;
+  padding: 8px 12px;
   margin: 10px 0;
-  border: 1px solid #ddd;
+  border: 1.5px solid #ddd;
+  border-radius: 8px;
   box-sizing: border-box;
   display: block;
+  font-size: 1.08rem;
+  color: #2e1348;
+  background: #eaedf0;
+  transition: border .2s;
 }
-
-.addTask button{
-  background-color: tomato;
+.addTask input:focus, textarea:focus, select:focus {
+  border: 1.5px solid #e5542b;
+  outline: none;
+}
+.addTask button, .pnf button {
+  background: #e5542b;
   color: #ffffff;
-  border: 0 ;
-  padding: 6px;
+  border: 0;
+  padding: 9px 23px;
   border-radius: 8px;
   cursor: pointer;
+  font-size: 1.09rem;
+  font-weight: 800;
+  margin-top: 8px;
+  box-shadow: 0 3px 15px #91360a1f;
+  transition: background .2s;
+}
+.addTask button:hover, .pnf button:hover {
+  background: #cf2d0f;
+}
+.pnf {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.pnf h2 {
+  color: #c11b42;
+}
+.pnf a {
+  color: #e5542b;
+  text-decoration: underline;
 }
 
-/* Create form Styles */
-
-
-
-
-
-
-/* Media queries for small screen */
-@media (max-width: 426px) {
-  .overall {
-    flex-direction: column;
-  }
-
-  .navbar-above {
-    width: 100%;
-    box-shadow: none;
-  }
-
-  .home {
-    width: 100%;
-  }
-
-  .navbar-collapse{
-    position: absolute;
-    right: 0.2rem;
-    top: 3.5rem;
-    flex-grow: 1;
-    flex-basis: 100%;
-    align-items: center;
-    background: azure;
-    width: 30vh;
-    z-index: 1;
-  }  
-  .navbar-toggler{
-    border: none !important;
-  }
-  .navbar-toggler:focus{
-    box-shadow: none !important;
-    border: 1px solid black !important;
-  }
+/* Media Queries */
+@media (max-width: 768px) {
+  .overall { flex-direction: column; }
+  .navbar-above { width: 97vw; min-width: 0; max-width: 100vw; border-radius: 0 0 20px 20px; }
+  .home { padding: 1.5rem 0.6rem; }
 }
-/* Media queries for small screen */
+
+/* Extra polish for toggle/utility buttons */
+.prime button[type="button"], .toggle-theme-btn {
+  border: 1.3px solid #e5542b;
+  background: #e5542b13;
+  color: #e5542b;
+  font-weight: 700;
+  border-radius: 8px;
+  margin: 0 10px;
+  font-size: 1.2rem;
+  transition: background .2s, color .2s;
+}
+.prime button[type="button"]:hover, .toggle-theme-btn:hover {
+  color: #fff;
+  background: #e5542b;
+}
