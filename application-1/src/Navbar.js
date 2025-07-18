@@ -1,5 +1,4 @@
 import './index.css';
-import { useState } from 'react';
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
@@ -10,10 +9,13 @@ const Navbar = () => {
       <div className="nav-main">
         <div id="navbarNavAltMarkup">
           <div className="custom-navbar">
-            <Link className="nav-link active" to="/addTask">
-              <button id="addTaskBtn">Add</button>
+            <Link className="nav-link ms-3" to="/addTask">
+              <button id="addTaskBtn"><i class="fa-solid fa-plus" style={{fontSize: "1.2rem"}}></i> &nbsp;<div className='addText'>Add</div> </button>
             </Link>
-            <Link className="nav-link home" to="/">Tasks</Link>
+            <Link className="nav-link active home" to="/">Tasks</Link>
+            <Link className="nav-link home" to="/">Completed</Link>
+            <hr />
+            <Link className="nav-link home" to="/"><i class="fa-solid fa-plus" style={{fontSize: "1.2rem"}}></i>Create New List</Link>
           </div>
         </div>
       </div>

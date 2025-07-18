@@ -1,70 +1,73 @@
 import { useState } from "react";
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
-const AddTask = () => {
-    const [title, setTaskTitle] = useState('');
-    const [desc, setTaskDesc] = useState('');
-    const [user, setUser] = useState('Saiprasanth');
-    const history =  useNavigate();
+const AddTask = ({ currentUser }) => {
+  const [title, setTaskTitle] = useState('');
+  const [desc, setTaskDesc] = useState('');
+  const [list, setList] = useState('My Tasks');
+  const [dueDate, setDueDate] = useState('');
+  const [completed, setCompleted] = useState(false);
+  const [isPending, setIsPending] = useState(false);
+  const navigate = useNavigate();
 
-    const[isPending, setIsPending] = useState(false);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const task = { title, desc, list, completed, dueDate };
+    setIsPending(true);
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        const task = { title, desc, user };
-        setIsPending(true);
+    try {
+      const response = await fetch('http://localhost:8000/taskList', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(task)
+      });
+      if (!response.ok) {
+        throw new Error('Failed to add task');
+      }
+      setIsPending(false);
+      navigate('/');
+    } catch (error) {
+      setIsPending(false);
+      alert("Error adding task");
+    }
+  };
 
-        try {
-            const response = await fetch('http://localhost:8000/taskList', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(task)
-            });
+  return (
+    <div className="addTask">
+      <form onSubmit={handleSubmit}>
+        <label>Task</label>
+        <input
+          type="text"
+          value={title}
+          required
+          onChange={(e) => setTaskTitle(e.target.value)}
+        />
 
-            if (!response.ok) {
-                throw new Error('Failed to add task');
-            }
+        <label>Task Description</label>
+        <textarea
+          value={desc}
+          required
+          onChange={(e) => setTaskDesc(e.target.value)}
+        />
 
-            console.log('Data added......');
-            setIsPending(false);
-            history('/');
-        } catch (error) {
-            console.error('Error:', error);
-            setIsPending(false);
-        }
-    };
-    return ( 
-        <div className="addTask">
-            <form onSubmit={handleSubmit}>
-                <label>Task</label>
-                    <input 
-                    type="text" 
-                    value={title}
-                    required
-                    onChange={(e) => setTaskTitle(e.target.value)}
-                    />
-                <label>Task Description</label>
-                    <textarea
-                    value={desc}
-                    required
-                    onChange={(e)=>setTaskDesc(e.target.value)}
-                    ></textarea>
+        <label>List</label>
+        <select>
+          
+        </select>
 
-                <label>List</label>
-                    <select
-                    value={user}
-                    required    
-                    onChange={(e)=>setUser(e.target.value)}
-                    >
-                        <option value="Saiprasanth">Saiprasanth</option>
-                        <option value="Official">Official</option>
-                    </select>
+        <label>Completion Date & Time</label>
+        <input
+          type="datetime-local"
+          value={dueDate}
+          onChange={e => setDueDate(e.target.value)}
+          required
+        />
 
-                {!isPending && <button>Add Task</button>}
-                {isPending && <button>Buffer........</button>}
-            </form>
-        </div>
-     );
-}
- 
+        {!isPending && <button>Add Task</button>}
+        {isPending && <button disabled>Buffer........</button>}
+      </form>
+    </div>
+  );
+};
+
 export default AddTask;

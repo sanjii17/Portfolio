@@ -1,28 +1,28 @@
 {
   "taskList": [
     {
-      "title": "Read Book",
-      "desc": "Complete the book on 28th sept",
-      "user": "saiprasanth",
-      "id": "1"
+      "id": "15d9",
+      "title": "cricket",
+      "desc": "batting",
+      "list": "My Tasks",
+      "completed": true,
+      "dueDate": "2025-07-31T00:54"
     },
     {
-      "title": "Breakfast",
-      "desc": "Complete the diet breakfast",
-      "user": "saiprasanth",
-      "id": "2"
+      "id": "61d5",
+      "title": "csndjs",
+      "desc": "svdvs",
+      "list": "My Tasks",
+      "completed": false,
+      "dueDate": "2025-07-18T09:55"
     },
     {
-      "id": "1244",
-      "title": "Track Weight",
-      "desc": "July - 7th month of weight progress",
-      "user": "Saiprasanth"
-    },
-    {
-      "id": "338d",
-      "title": "Save Money",
-      "desc": "Save money to buy PS5 pro (or) model that comes with the bundle, when GTA6 gets released.",
-      "user": "Saiprasanth"
+      "id": "bea0",
+      "title": "hiii",
+      "desc": "lalala",
+      "list": "My Tasks",
+      "completed": false,
+      "dueDate": "2025-07-12T01:37"
     }
   ]
 }
