@@ -55,10 +55,10 @@ function App() {
           onLogout={handleLogout}
         />
         <div className="overall">
-          
+          <Navbar></Navbar>
           <Routes>
             <Route path="/" element={<Home searchTerm={searchTerm} setSearchTerm={setSearchTerm} />} />
-            <Route path="/addTask" element={<AddTask currentUser={currentUser} />} />
+            <Route path="/addTask" element={<AddTask/>} />
             <Route path="/editTask/:id" element={<EditTask />} />
             <Route path="/taskdesc/:id" element={<TaskDesc />} />
             <Route path="/logout" element={<Logout onLogout={handleLogout} />} />

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const AddTask = ({ currentUser }) => {
   const [title, setTaskTitle] = useState('');
   const [desc, setTaskDesc] = useState('');
-  const [user, setUser] = useState(currentUser || 'Saiprasanth');
+  const [list, setList] = useState('My Tasks');
   const [dueDate, setDueDate] = useState('');
   const [completed, setCompleted] = useState(false);
   const [isPending, setIsPending] = useState(false);
@@ -12,7 +12,7 @@ const AddTask = ({ currentUser }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const task = { title, desc, user, completed, dueDate };
+    const task = { title, desc, list, completed, dueDate };
     setIsPending(true);
 
     try {
@@ -50,15 +50,10 @@ const AddTask = ({ currentUser }) => {
           onChange={(e) => setTaskDesc(e.target.value)}
         />
 
-        <label>User</label>
-        {/* lock user for now or let choose */}
-        <input
-          type="text"
-          value={user}
-          disabled
-          readOnly
-          style={{background:"#ececec"}}
-        />
+        <label>List</label>
+        <select>
+          
+        </select>
 
         <label>Completion Date & Time</label>
         <input

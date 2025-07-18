@@ -16,19 +16,19 @@ const Home = ({ searchTerm, setSearchTerm }) => {
                     <h3>Fetching data. Please wait... </h3>
                 </div>
             }
-            {list && <TaskList list={list.filter((task) =>
-                task.title.toLowerCase().includes(searchTerm.toLowerCase())
-            )} title="All" />}
+            {list && (list.filter((task) =>
+            task.title.toLowerCase().includes(searchTerm.toLowerCase())).length === 0 ? (
+            <div className="no-tasks">
+            <h3>No tasks found.</h3>
+            </div>) : 
+            (<TaskList
+            list={list.filter((task) =>
+            task.title.toLowerCase().includes(searchTerm.toLowerCase())
+            )}
+            title="My Tasks"/>
+            ))}
 
-            {list && <TaskList list={list.filter((task) =>
-                task.user.toLowerCase() === "saiprasanth" &&
-                task.title.toLowerCase().includes(searchTerm.toLowerCase())
-            )} title="Saiprasanth" />}
-            {list &&
-                <div>
-                    <span>Completed Tasks: {list.filter(t => t.completed).length}</span>
-                </div>
-            }
+
         </div>
     );
 }

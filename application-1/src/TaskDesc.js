@@ -9,14 +9,12 @@ const TaskDesc = () => {
     const [isEditing, setEditing] = useState(false);
     const [editedTitle, setEditedTitle] = useState('');
     const [editedDesc, setEditedDesc] = useState('');
-    const [editedUser, setEditedUser] = useState('');
     const [editedDueDate, setEditedDueDate] = useState('');
 
     useEffect(() => {
         if (tasks) {
             setEditedTitle(tasks.title);
             setEditedDesc(tasks.desc);
-            setEditedUser(tasks.user);
             setEditedDueDate(tasks.dueDate || "");
         }
     }, [tasks]);
@@ -38,7 +36,7 @@ const TaskDesc = () => {
     };
 
     return (
-        <div className="container taskDesc">
+        <div className="container taskDesc ">
             {fetchError &&
                 <div className="error">
                     <h3>{fetchError}</h3>
@@ -50,16 +48,18 @@ const TaskDesc = () => {
                 </div>
             }
             {tasks && !isEditing && (
-                <article>
-                    <h2>{tasks.title}</h2>
-                    <p>Description: {tasks.desc}</p>
-                    <p>User: {tasks.user}</p>
-                    <p>Due Date: {tasks.dueDate}</p>
+                <div className="container task-desc-container">
+                    <div className="image"><img src="/sports_panel.jpg" alt="sports image" /></div>
+                    <div className="task-title"><h2>{tasks.title}</h2></div>
+                    <div className="task-desc"><p>Description: {tasks.desc}</p></div>
+                    <div className="task-date"><p>Due Date: {tasks.dueDate}</p></div>                    
                     <div className="delete">
                         <button onClick={removeTask}>Delete</button>
                         <button onClick={() => navi(`/editTask/${tasks.id}`)}>Edit</button>
                     </div>
-                </article>
+                </div>
+                  
+                
             )}
         </div>
     );

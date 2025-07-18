@@ -29,7 +29,7 @@ const NavbarPrime = ({ name, searchTerm, setSearchTerm, theme, toggleTheme, onLo
               className="form-control me-2"
               type="search"
               placeholder="Search"
-              value={searchTerm}
+              value={{searchTerm}?searchTerm : "Search tasks..."}
               onChange={(e) => setSearchTerm(e.target.value)}
               aria-label="Search"
             />
