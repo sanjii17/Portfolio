@@ -6,14 +6,14 @@
       "desc": "July - 7th month of weight progress",
       "user": "Saiprasanth",
       "dueDate": "2025-07-17T03:37",
-      "completed": true
+      "completed": false
     },
     {
       "id": "c681",
       "title": "hi",
       "desc": "hi",
       "user": "Official",
-      "completed": true,
+      "completed": false,
       "dueDate": "2025-01-12"
     }
   ]
